@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto&display=swap" rel="stylesheet">
+    
+    <title>Document</title>
+    <!-- استدعاء الخطوط من Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Cairo&family=Roboto&display=swap" rel="stylesheet">
+  <style>
+    /* تطبيق الخط الافتراضي، اللون، وحجم الخط */
+    body {
+      font-family: 'Open Sans', sans-serif;
+      color: black;
+      font-size: 16px;
+      text-align: center;
+      margin-top: 50px;
+    }
+
+    /* بعض التنسيقات للـ Select Boxes */
+    select {
+      padding: 10px;
+      margin: 10px;
+      font-size: 16px;
+    }
+
+    p {
+      margin-top: 30px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Select Box لاختيار الخطوط -->
+  <label for="fontSelect">اختر الخط:</label>
+  <select id="fontSelect">
+    <option value="Open Sans" selected>Open</option>
+    <option value="Cairo">Cairo</option>
+    <option value="Roboto">Roboto</option>
+  </select>
+
+  <!-- Select Box لاختيار الألوان -->
+  <label for="colorSelect">اختر اللون:</label>
+  <select id="colorSelect">
+    <option value="black" selected>أسود</option>
+    <option value="red">أحمر</option>
+    <option value="blue">أزرق</option>
+    <option value="green">أخضر</option>
+    <option value="purple">بنفسجي</option>
+    <option value="orange">برتقالي</option>
+  </select>
+
+  <!-- Select Box لاختيار حجم الخط -->
+  <label for="sizeSelect">اختر حجم الخط:</label>
+  <select id="sizeSelect">
+    <option value="16px" selected>16</option>
+    <option value="18px">18</option>
+    <option value="20px">20</option>
+    <option value="22px">22</option>
+    <option value="24px">24</option>
+    <option value="26px">26</option>
+    <option value="28px">28</option>
+    <option value="30px">30</option>
+  </select>
+
+  <p id="text">هذا النص يمكن تغييره باختيار خط، لون، وحجم جديد</p>
+  <script>
+    let font=document.getElementById('fontSelect');
+    let color=document.getElementById('colorSelect');
+    let size=document.getElementById('sizeSelect');
+    font.onchange=function(){
+        localStorage.setItem('fontFamily',font.value);
+        document.body.style.fontFamily=localStorage.getItem('fontFamily');
+    }
+    color.onchange=function(){
+        localStorage.setItem('fontColor',color.value);
+        document.body.style.color=localStorage.getItem('fontColor');
+    }
+    size.onchange=function(){
+        localStorage.setItem('Size',size.value);
+        document.body.style.fontSize=localStorage.getItem('Size');
+    }
+  </script>
+
+</body>
+</html>
